@@ -33,4 +33,4 @@
 
 -----
 ## Troubleshooting
-
+* [Connect to SQL Server when system administrators are locked out](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/connect-to-sql-server-when-system-administrators-are-locked-out)
