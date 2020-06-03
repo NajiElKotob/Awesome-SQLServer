@@ -30,6 +30,7 @@
 
 -----
 ## Security
+* [Security Considerations for a SQL Server Installation](https://docs.microsoft.com/en-us/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
 
 -----
 ## Troubleshooting
