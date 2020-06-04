@@ -1,6 +1,6 @@
 # Awesome SQL Server
 
-** DRAFT **
+{Work in Process}
 
 -----
 ## Tools
@@ -35,3 +35,6 @@
 -----
 ## Troubleshooting
 * [Connect to SQL Server when system administrators are locked out](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/connect-to-sql-server-when-system-administrators-are-locked-out)
+* Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
+  * [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
+  * [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
