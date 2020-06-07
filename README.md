@@ -33,6 +33,10 @@
 * [Security Considerations for a SQL Server Installation](https://docs.microsoft.com/en-us/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
 
 -----
+## Audit
+* [SQL Server Auditing Best Practices](https://www.sqlshack.com/sql-server-auditing-best-practices/) (sqlshack.com, May 2019) - Goal, Scope, Tools, Audit Data, Audit Role, Audit for Audit, Archiving and more.
+
+-----
 ## Troubleshooting
 * [Connect to SQL Server when system administrators are locked out](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/connect-to-sql-server-when-system-administrators-are-locked-out)
 * Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
