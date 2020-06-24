@@ -3,6 +3,10 @@
 {Work in Process}
 
 -----
+## Special Videos
+* [Understanding Memory with SQL Server and Azure SQL](https://www.youtube.com/watch?v=CRAx73LiXTc) (Bob Ward, June 2020)
+
+-----
 ## Tools
 
 ### Database Tools
