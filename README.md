@@ -12,6 +12,9 @@
 ### Database Tools
 * [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is)
+* [Visual Studio Code](https://code.visualstudio.com/) - Free. Built on open source. Runs everywhere.
+
+
 
 ### Documentation
 * [Database documentation tools](https://dbmstools.com/categories/database-documentation-tools/sqlserver?commercial=Free) - DBMSTools.com
