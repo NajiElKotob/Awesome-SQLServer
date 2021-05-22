@@ -54,3 +54,8 @@
 * Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
   * [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
   * [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
+
+-----
+
+## Querying
+* [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
