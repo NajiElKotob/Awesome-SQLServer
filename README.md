@@ -59,3 +59,4 @@
 
 ## Querying
 * [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
+  * [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
