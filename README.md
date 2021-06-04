@@ -64,3 +64,4 @@
 * [SQL all kinds of join queries](https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/)
 * [Subqueries (Derived Table)](https://docs.microsoft.com/en-us/sql/relational-databases/performance/subqueries)
 * [Window Functions vs. GROUP BY](https://learnsql.com/blog/sql-window-functions-vs-group-by/) - learnsql.com
+  * [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
