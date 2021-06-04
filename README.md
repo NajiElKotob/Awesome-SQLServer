@@ -26,11 +26,6 @@
 * [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
 * [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
 
------
-## Database Querying
-* [T-SQL Querying (Repository)](https://github.com/NajiElKotob/T-SQL_Querying)
-* [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
-
 
 -----
 ## Administration
@@ -59,6 +54,7 @@
 -----
 
 ## Querying
+* [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
 * [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
   * [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
 * [SQL all kinds of join queries](https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/)
