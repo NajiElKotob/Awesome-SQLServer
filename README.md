@@ -59,7 +59,8 @@
   - [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
 * [SQL all kinds of join queries](https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/)
 * [Subqueries (Derived Table)](https://docs.microsoft.com/en-us/sql/relational-databases/performance/subqueries)
-* [Window Functions vs. GROUP BY](https://learnsql.com/blog/sql-window-functions-vs-group-by/) - learnsql.com
+* [Learn SQL Cookbook](https://learnsql.com/cookbook/) - learnsql.com
+  - [Window Functions vs. GROUP BY](https://learnsql.com/blog/sql-window-functions-vs-group-by/)
   - [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
 * Date and Time
   - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
