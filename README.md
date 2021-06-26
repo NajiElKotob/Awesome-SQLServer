@@ -63,3 +63,6 @@
   * [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
 * Date and Time
   * [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
+*  Statistical aggregate functions
+  * SUM(), COUNT(), MIN(), and MAX()
+  * AVG(),VAR(), VARP(), STDEV() and STDEVP()
