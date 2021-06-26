@@ -48,21 +48,21 @@
 ### Troubleshooting
 * [Connect to SQL Server when system administrators are locked out](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/connect-to-sql-server-when-system-administrators-are-locked-out)
 * Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
-  * [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
-  * [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
+  - [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
+  - [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
 
 -----
 
 ## Querying
 * [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
 * [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
-  * [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
+  - [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
 * [SQL all kinds of join queries](https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/)
 * [Subqueries (Derived Table)](https://docs.microsoft.com/en-us/sql/relational-databases/performance/subqueries)
 * [Window Functions vs. GROUP BY](https://learnsql.com/blog/sql-window-functions-vs-group-by/) - learnsql.com
-  * [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
+  - [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
 * Date and Time
-  * [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
-*  Statistical aggregate functions
-  * SUM(), COUNT(), MIN(), and MAX()
-  * AVG(),VAR(), VARP(), STDEV() and STDEVP()
+  - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
+* Statistical aggregate functions
+  - SUM(), COUNT(), MIN(), and MAX()
+  - AVG(),VAR(), VARP(), STDEV() and STDEVP()
