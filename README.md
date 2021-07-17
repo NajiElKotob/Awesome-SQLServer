@@ -64,6 +64,20 @@
   - [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
 * Date and Time
   - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
-* Statistical aggregate functions
-  - SUM(), COUNT(), MIN(), and MAX()
-  - AVG(),VAR(), VARP(), STDEV() and STDEVP()
+  - GETDATE, GETUTCDATE
+  - YEAR, MONTH, DAY
+  - DATEPART, DATENAME
+  - DATEADD, DATEDIFF
+  - ISDATE
+* [String](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql)
+  - LEN, LEFT, RIGHT
+  - UPPER, LOWER
+  - CHARINDEX, PATINDEX
+  - STRING_AGG, STRING_SPLIT
+* Numeric
+  - Statistical aggregate functions
+    - SUM(), COUNT(), MIN(), and MAX()
+    - AVG(),VAR(), VARP(), STDEV() and STDEVP()
+* [Analytic Functions](https://docs.microsoft.com/en-us/sql/t-sql/functions/analytic-functions-transact-sql)
+  - LAG, LEAD
+
