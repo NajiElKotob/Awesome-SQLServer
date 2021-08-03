@@ -20,6 +20,8 @@
 
 -----
 ## Installation
+* [SQL Server Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
 
 -----
 
@@ -33,7 +35,7 @@
 -----
 ## Administration
 
-## Architecture
+### Architecture
 * [Understanding Memory with SQL Server and Azure SQL](https://www.youtube.com/watch?v=CRAx73LiXTc) (Bob Ward, June 2020)
 
 
