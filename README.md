@@ -2,9 +2,7 @@
 
 {Work in Process}
 
------
-## Special Videos
-* [Understanding Memory with SQL Server and Azure SQL](https://www.youtube.com/watch?v=CRAx73LiXTc) (Bob Ward, June 2020)
+
 
 -----
 ## Tools
@@ -14,21 +12,26 @@
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is)
 * [Visual Studio Code](https://code.visualstudio.com/) - Free. Built on open source. Runs everywhere.
 
-
-
 ### Documentation
 * [Database documentation tools](https://dbmstools.com/categories/database-documentation-tools/sqlserver?commercial=Free) - DBMSTools.com
 
 -----
 ## Installation
 
+-----
+
 ## Database Design
 * [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
 * [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
 
+-----
+## Development
 
 -----
 ## Administration
+
+## Architecture
+* [Understanding Memory with SQL Server and Azure SQL](https://www.youtube.com/watch?v=CRAx73LiXTc) (Bob Ward, June 2020)
 
 
 ### Tuning
