@@ -82,6 +82,8 @@
   - LAG, LEAD
 ### YouTube :tv:
 * [SQL Server Queries](https://www.youtube.com/watch?v=2-1XQHAgDsM&list=PL6EDEB03D20332309) - WiseOwlTutorials
+### Books
+* [Learn T-SQL Querying](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
 ### Get Started Querying with Transact-SQL
 * [Introduction to Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/introduction-to-transact-sql/)
 * [Sort and filter results in T-SQL](https://docs.microsoft.com/en-us/learn/modules/sort-filter-queries/)
