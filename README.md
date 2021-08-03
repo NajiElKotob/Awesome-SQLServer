@@ -2,6 +2,9 @@
 
 {Work in Process}
 
+* [Tools](#tools)
+* [Administration](#administration)
+* [Querying](#querying)
 
 
 -----
