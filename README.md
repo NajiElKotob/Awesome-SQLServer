@@ -80,6 +80,8 @@
     - AVG(),VAR(), VARP(), STDEV() and STDEVP()
 * [Analytic Functions](https://docs.microsoft.com/en-us/sql/t-sql/functions/analytic-functions-transact-sql)
   - LAG, LEAD
+### YouTube :tv:
+* [SQL Server Queries](https://www.youtube.com/watch?v=2-1XQHAgDsM&list=PL6EDEB03D20332309) - WiseOwlTutorials
 ### Get Started Querying with Transact-SQL
 * [Introduction to Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/introduction-to-transact-sql/)
 * [Sort and filter results in T-SQL](https://docs.microsoft.com/en-us/learn/modules/sort-filter-queries/)
