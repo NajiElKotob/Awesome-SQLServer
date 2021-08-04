@@ -35,25 +35,30 @@
 -----
 ## Administration
 
-### Architecture
+
+### Books
+* [Introducing Microsoft SQL Server 2019](https://clouddamcdnprodep.azureedge.net/gdc/gdcJivzXl/original) - Packt
+
+### Articles and Videos
+#### Architecture
 * [Understanding Memory with SQL Server and Azure SQL](https://www.youtube.com/watch?v=CRAx73LiXTc) (Bob Ward, June 2020)
 
 
-### Tuning
+#### Tuning
 
 
-### Security
+#### Security
 * [Security Considerations for a SQL Server Installation](https://docs.microsoft.com/en-us/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
 * [Transparent Data Encryption (TDE)](https://www.red-gate.com/simple-talk/sql/sql-development/encrypting-sql-server-transparent-data-encryption-tde/) 
 
-### Backup
+#### Backup
 [Understanding SQL Server Backup Types](https://www.sqlshack.com/understanding-sql-server-backup-types/) (Prashanth Jayaram, April 2018)
 
-### Audit
+#### Audit
 * [SQL Server Auditing Best Practices](https://www.sqlshack.com/sql-server-auditing-best-practices/) (sqlshack.com, May 2019) - Goal, Scope, Tools, Audit Data, Audit Role, Audit for Audit, Archiving and more.
 
 
-### Troubleshooting
+#### Troubleshooting
 * [Connect to SQL Server when system administrators are locked out](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/connect-to-sql-server-when-system-administrators-are-locked-out)
 * Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
   - [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
