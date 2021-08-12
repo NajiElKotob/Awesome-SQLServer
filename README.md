@@ -93,7 +93,7 @@
     - SUM(), COUNT(), MIN(), and MAX()
     - AVG(),VAR(), VARP(), STDEV() and STDEVP()
 * [Analytic Functions](https://docs.microsoft.com/en-us/sql/t-sql/functions/analytic-functions-transact-sql)
-  - [LAG](https://docs.microsoft.com/en-us/sql/t-sql/functions/lag-transact-sql), LEAD
+  - [LAG](https://docs.microsoft.com/en-us/sql/t-sql/functions/lag-transact-sql), [LEAD](https://docs.microsoft.com/en-us/sql/t-sql/functions/lead-transact-sql)
 ### YouTube :tv:
 * [SQL Server Queries](https://www.youtube.com/watch?v=2-1XQHAgDsM&list=PL6EDEB03D20332309) - WiseOwlTutorials
 * [Querying with Transact-SQL (Channel 9)](https://channel9.msdn.com/Series/Querying-with-Transact-SQL)
