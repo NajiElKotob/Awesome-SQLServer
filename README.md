@@ -84,7 +84,7 @@
   - DATEADD, DATEDIFF
   - ISDATE
 * [String](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql)
-  - LEN, LEFT, RIGHT
+  - [LEN](https://docs.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql), LEFT, RIGHT
   - UPPER, LOWER
   - CHARINDEX, PATINDEX
   - STRING_AGG, STRING_SPLIT
