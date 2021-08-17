@@ -85,7 +85,7 @@
   - ISDATE
 * [String](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql)
   - [LEN](https://docs.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql), LEFT, RIGHT
-  - UPPER, LOWER
+  - [UPPER](https://docs.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql), LOWER
   - CHARINDEX, PATINDEX
   - STRING_AGG, STRING_SPLIT
 * Numeric
