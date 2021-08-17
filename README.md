@@ -90,8 +90,8 @@
   - STRING_AGG, STRING_SPLIT
 * Numeric
   - Statistical aggregate functions
-    - [SUM()](https://docs.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql), COUNT(), MIN(), and MAX()
-    - AVG(),VAR(), VARP(), STDEV() and STDEVP()
+    - [SUM](https://docs.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql), COUNT, MIN, and MAX
+    - AVG,VAR, VARP, [STDEV](https://docs.microsoft.com/en-us/sql/t-sql/functions/stdev-transact-sql) and STDEVP
 * [Analytic Functions](https://docs.microsoft.com/en-us/sql/t-sql/functions/analytic-functions-transact-sql)
   - [LAG](https://docs.microsoft.com/en-us/sql/t-sql/functions/lag-transact-sql), [LEAD](https://docs.microsoft.com/en-us/sql/t-sql/functions/lead-transact-sql)
 ### YouTube :tv:
