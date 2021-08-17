@@ -86,7 +86,7 @@
 * [String](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql)
   - [LEN](https://docs.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql), LEFT, RIGHT
   - [UPPER](https://docs.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql), LOWER
-  - CHARINDEX, PATINDEX
+  - [CHARINDEX](https://docs.microsoft.com/en-us/sql/t-sql/functions/charindex-transact-sql), PATINDEX
   - STRING_AGG, STRING_SPLIT
 * Numeric
   - Statistical aggregate functions
