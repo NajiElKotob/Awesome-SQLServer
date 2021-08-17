@@ -78,7 +78,7 @@
   - [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
 * Date and Time
   - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
-  - [GETDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql), GETUTCDATE
+  - [GETDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql), [GETUTCDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getutcdate-transact-sql)
   - YEAR, MONTH, DAY
   - DATEPART, DATENAME
   - DATEADD, DATEDIFF
