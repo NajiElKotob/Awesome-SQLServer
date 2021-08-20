@@ -80,7 +80,7 @@
   - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
   - [GETDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql), [GETUTCDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getutcdate-transact-sql)
   - YEAR, MONTH, DAY
-  - [DATEPART](https://docs.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql), DATENAME
+  - [DATEPART](https://docs.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql), [DATENAME](https://docs.microsoft.com/en-us/sql/t-sql/functions/datename-transact-sql)
   - DATEADD, DATEDIFF
   - ISDATE
 * [String](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql)
