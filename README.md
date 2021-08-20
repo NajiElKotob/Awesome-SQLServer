@@ -82,7 +82,7 @@
   - YEAR, MONTH, DAY
   - [DATEPART](https://docs.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql), [DATENAME](https://docs.microsoft.com/en-us/sql/t-sql/functions/datename-transact-sql)
   - [DATEADD](https://docs.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql), [DATEDIFF](https://docs.microsoft.com/en-us/sql/t-sql/functions/datediff-transact-sql)
-  - ISDATE
+  - [ISDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/isdate-transact-sql)
 * [String](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql)
   - [LEN](https://docs.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql), LEFT, RIGHT
   - [UPPER](https://docs.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql), [LOWER](https://docs.microsoft.com/en-us/sql/t-sql/functions/lower-transact-sql)
