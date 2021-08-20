@@ -76,7 +76,7 @@
 * [Learn SQL Cookbook](https://learnsql.com/cookbook/) - learnsql.com
   - [Window Functions vs. GROUP BY](https://learnsql.com/blog/sql-window-functions-vs-group-by/)
   - [SQL Window Functions Cheat Sheet](https://learnsql.com/blog/sql-window-functions-cheat-sheet/) 
-* Date and Time
+* [Date and Time](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql)
   - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
   - [GETDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql), [GETUTCDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getutcdate-transact-sql)
   - YEAR, MONTH, DAY
