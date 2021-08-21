@@ -79,7 +79,7 @@
 * [Date and Time](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql)
   - [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
   - [GETDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql), [GETUTCDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/getutcdate-transact-sql)
-  - YEAR, MONTH, DAY
+  - [YEAR](https://docs.microsoft.com/en-us/sql/t-sql/functions/year-transact-sql), [MONTH](https://docs.microsoft.com/en-us/sql/t-sql/functions/month-transact-sql), [DAY](https://docs.microsoft.com/en-us/sql/t-sql/functions/day-transact-sql)
   - [DATEPART](https://docs.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql), [DATENAME](https://docs.microsoft.com/en-us/sql/t-sql/functions/datename-transact-sql)
   - [DATEADD](https://docs.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql), [DATEDIFF](https://docs.microsoft.com/en-us/sql/t-sql/functions/datediff-transact-sql)
   - [ISDATE](https://docs.microsoft.com/en-us/sql/t-sql/functions/isdate-transact-sql)
