@@ -87,7 +87,7 @@
   - [LEN](https://docs.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql), [LEFT](https://docs.microsoft.com/en-us/sql/t-sql/functions/left-transact-sql), [RIGHT](https://docs.microsoft.com/en-us/sql/t-sql/functions/right-transact-sql)
   - [UPPER](https://docs.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql), [LOWER](https://docs.microsoft.com/en-us/sql/t-sql/functions/lower-transact-sql)
   - [CHARINDEX](https://docs.microsoft.com/en-us/sql/t-sql/functions/charindex-transact-sql), [PATINDEX](https://docs.microsoft.com/en-us/sql/t-sql/functions/patindex-transact-sql)
-  - STRING_AGG, [STRING_SPLIT](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-split-transact-sql)
+  - [STRING_AGG](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-agg-transact-sql), [STRING_SPLIT](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-split-transact-sql)
 * [Aggregate](https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql)
   - Statistical aggregate functions
     - [SUM](https://docs.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql), [COUNT](https://docs.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql), MIN, and MAX
