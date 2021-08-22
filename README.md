@@ -99,7 +99,7 @@
 * [Querying with Transact-SQL (Channel 9)](https://channel9.msdn.com/Series/Querying-with-Transact-SQL)
 * [Like (Advanced) ~11min](https://www.youtube.com/watch?v=d-fnQtWdiW4) - Database by Doug
 ### Books
-* [Learn T-SQL Querying](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
+* [Learn T-SQL Querying (Free)](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
 ### Learning
 #### Get Started Querying with Transact-SQL
 1. [Introduction to Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/introduction-to-transact-sql/)
