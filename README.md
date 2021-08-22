@@ -97,6 +97,7 @@
 ### YouTube :tv:
 * [SQL Server Queries](https://www.youtube.com/watch?v=2-1XQHAgDsM&list=PL6EDEB03D20332309) - WiseOwlTutorials
 * [Querying with Transact-SQL (Channel 9)](https://channel9.msdn.com/Series/Querying-with-Transact-SQL)
+* [Like (Advanced)](https://www.youtube.com/watch?v=d-fnQtWdiW4) - Database by Doug
 ### Books
 * [Learn T-SQL Querying](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
 ### Learning
