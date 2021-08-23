@@ -68,7 +68,6 @@
 -----
 
 ## Querying
-* [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
 * [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
   - [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
 * [SQL all kinds of join queries](https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/)
@@ -102,6 +101,7 @@
 * [Learn T-SQL Querying (Free)](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
 ### Learning
 #### Get Started Querying with Transact-SQL
+* [Get Started Querying with Transact-SQL (Path)](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
 1. [Introduction to Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/introduction-to-transact-sql/)
 1. [Sort and filter results in T-SQL](https://docs.microsoft.com/en-us/learn/modules/sort-filter-queries/)
 1. [Combine multiple tables with JOINs in T-SQL](https://docs.microsoft.com/en-us/learn/modules/query-multiple-tables-with-joins/)
