@@ -114,6 +114,7 @@
 
 #### Microsoft Learning
 * [DP-080T00: Querying Data with Microsoft Transact-SQL](https://github.com/MicrosoftLearning/dp-080-Transact-SQL)
+* [Querying with Transact-SQL](https://github.com/MicrosoftLearning/QueryingT-SQL)
 
 #### Educational SQL resources
 * [Educational SQL resources](https://docs.microsoft.com/en-us/sql/sql-server/educational-sql-resources) - Tutorials, quickstarts, and other educational resources meant to teach you to work with SQL Server and Azure SQL Database.
