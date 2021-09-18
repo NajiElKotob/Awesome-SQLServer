@@ -124,3 +124,6 @@
 -----
 ## Development
 
+### Microsoft Learning
+* [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/)
+
