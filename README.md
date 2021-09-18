@@ -3,8 +3,11 @@
 {Work in Process}
 
 * [Tools](#tools)
+* [Installation](#installation)
 * [Administration](#administration)
 * [Querying](#querying)
+* [Database Design](#database-design)
+* [Development](#development)
 
 
 -----
@@ -23,15 +26,6 @@
 ## Installation
 * [SQL Server Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-
------
-
-## Database Design
-* [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
-* [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
-
------
-## Development
 
 -----
 ## Administration
@@ -118,3 +112,13 @@
 
 #### Educational SQL resources
 * [Educational SQL resources](https://docs.microsoft.com/en-us/sql/sql-server/educational-sql-resources) - Tutorials, quickstarts, and other educational resources meant to teach you to work with SQL Server and Azure SQL Database.
+
+-----
+
+## Database Design
+* [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
+* [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
+
+-----
+## Development
+
