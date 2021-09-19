@@ -2,6 +2,10 @@
 
 {Awesome Works in Progress}
 
+```
+Microsoft SQL Server is a relational database management system (RDBMS) that supports a wide variety of transaction processing, business intelligence and analytics applications in corporate IT environments. [Learn more](https://searchdatamanagement.techtarget.com/definition/SQL-Server)
+```
+
 * [Tools](#tools)
 * [Installation](#installation)
 * [Administration](#administration)
