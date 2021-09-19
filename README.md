@@ -32,6 +32,7 @@ business intelligence and analytics applications in corporate IT environments. [
 
 ### Database Tools
 * [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
+    * [Course: SSMS Shortcuts and Secrets](https://www.youtube.com/watch?v=h04qEu8vJYc&list=PLoM-GGCV9ZrKqqR2fhxuy-oKookinG4nx) - Kendra Little
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is)
     * [The A to S of Azure Data Studio :tv:](https://www.youtube.com/watch?v=F0bIBFuH93c) 
 * [Visual Studio Code](https://code.visualstudio.com/) - Free. Built on open source. Runs everywhere.
