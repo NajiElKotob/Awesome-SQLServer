@@ -10,6 +10,14 @@
 * [Development](#development)
 
 
+## Books
+* [Introducing Microsoft SQL Server 2019](https://clouddamcdnprodep.azureedge.net/gdc/gdcJivzXl/original) - Packt
+
+
+### Technical white papers
+* [Microsoft SQL Server 2019](https://go.microsoft.com/fwlink/p/?linkid=2166197)
+
+
 -----
 ## Tools
 
@@ -27,10 +35,6 @@
 
 -----
 ## Administration
-
-
-### Books
-* [Introducing Microsoft SQL Server 2019](https://clouddamcdnprodep.azureedge.net/gdc/gdcJivzXl/original) - Packt
 
 ### Articles and Videos
 #### Architecture
@@ -56,6 +60,16 @@
 * Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
   - [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
   - [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
+
+-----
+
+## Database Design
+* [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
+* [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
+
+### Documentation
+* [Database documentation tools](https://dbmstools.com/categories/database-documentation-tools/sqlserver?commercial=Free) - DBMSTools.com
+
 
 -----
 
@@ -111,15 +125,6 @@
 #### Educational SQL resources
 * [Educational SQL resources](https://docs.microsoft.com/en-us/sql/sql-server/educational-sql-resources) - Tutorials, quickstarts, and other educational resources meant to teach you to work with SQL Server and Azure SQL Database.
 
------
-
-## Database Design
-* [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
-* [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
-
-### Documentation
-* [Database documentation tools](https://dbmstools.com/categories/database-documentation-tools/sqlserver?commercial=Free) - DBMSTools.com
-
 
 -----
 ## Development
@@ -130,5 +135,3 @@
 * [Write advanced Transact-SQL queries](https://docs.microsoft.com/en-us/learn/paths/write-advanced-transact-sql-queries/)
 * [Optimize query performance in SQL Server](https://docs.microsoft.com/en-us/learn/paths/optimize-query-performance-sql-server/)
 
-### Technical white papers
-* [Microsoft SQL Server 2019](https://go.microsoft.com/fwlink/p/?linkid=2166197)
