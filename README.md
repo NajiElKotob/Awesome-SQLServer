@@ -129,3 +129,6 @@
 * [Program with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/program-transact-sql/)
 * [Write advanced Transact-SQL queries](https://docs.microsoft.com/en-us/learn/paths/write-advanced-transact-sql-queries/)
 * [Optimize query performance in SQL Server](https://docs.microsoft.com/en-us/learn/paths/optimize-query-performance-sql-server/)
+
+### Technical white papers
+* [Microsoft SQL Server 2019](https://go.microsoft.com/fwlink/p/?linkid=2166197)
