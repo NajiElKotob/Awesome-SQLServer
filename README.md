@@ -136,6 +136,10 @@ business intelligence and analytics applications in corporate IT environments. [
 -----
 ## Development
 
+### Vidoes
+* [SQL Server - Procedures and Programming](https://www.youtube.com/playlist?list=PLNIs-AWhQzcleQWADpUgriRxebMkMmi4H) - WiseOwlTutorials
+
+
 ### Microsoft Learning
 * [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/)
 * [Program with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/program-transact-sql/)
