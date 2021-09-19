@@ -1,6 +1,6 @@
 # Awesome SQL Server
 
-{Work in Process}
+{Awesome Works in Progress}
 
 * [Tools](#tools)
 * [Installation](#installation)
