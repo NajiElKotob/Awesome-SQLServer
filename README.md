@@ -21,9 +21,11 @@ business intelligence and analytics applications in corporate IT environments. [
 * [Introducing Microsoft SQL Server 2019](https://clouddamcdnprodep.azureedge.net/gdc/gdcJivzXl/original) - Packt
 
 
-### Technical white papers
+## Technical white papers
 * [Microsoft SQL Server 2019](https://go.microsoft.com/fwlink/p/?linkid=2166197)
 
+## YouTube :tv:
+* [Kendra Little](https://www.youtube.com/channel/UCrJ8WLrVoKxL94mKv2akxTA)
 
 -----
 ## Tools
