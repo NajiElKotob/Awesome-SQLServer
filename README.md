@@ -132,6 +132,9 @@ business intelligence and analytics applications in corporate IT environments. [
 #### Educational SQL resources
 * [Educational SQL resources](https://docs.microsoft.com/en-us/sql/sql-server/educational-sql-resources) - Tutorials, quickstarts, and other educational resources meant to teach you to work with SQL Server and Azure SQL Database.
 
+#### SoloLearn
+* [SQL](https://www.sololearn.com/learning/1060) - sololearn.com
+
 #### Quizzes
 * [SQL Quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL) - w3schools.com
 
