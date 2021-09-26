@@ -125,9 +125,6 @@ business intelligence and analytics applications in corporate IT environments. [
 1. [Use built-in functions and GROUP BY in Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/use-built-functions-transact-sql/)
 1. [Modify data with T-SQL](https://docs.microsoft.com/en-us/learn/modules/modify-data-with-transact-sql/)
 
-#### Quizzes
-* [SQL Quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL) - w3schools.com
-
 #### Microsoft Learning
 * [DP-080T00: Querying Data with Microsoft Transact-SQL](https://github.com/MicrosoftLearning/dp-080-Transact-SQL)
 * [Querying with Transact-SQL](https://github.com/MicrosoftLearning/QueryingT-SQL)
@@ -135,6 +132,8 @@ business intelligence and analytics applications in corporate IT environments. [
 #### Educational SQL resources
 * [Educational SQL resources](https://docs.microsoft.com/en-us/sql/sql-server/educational-sql-resources) - Tutorials, quickstarts, and other educational resources meant to teach you to work with SQL Server and Azure SQL Database.
 
+#### Quizzes
+* [SQL Quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL) - w3schools.com
 
 -----
 ## Development
