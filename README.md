@@ -17,7 +17,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 
 ## Books
 * [Introducing Microsoft SQL Server 2019](https://clouddamcdnprodep.azureedge.net/gdc/gdcJivzXl/original) - Packt
-
+* [Database Design – 2nd Edition](https://opentextbc.ca/dbdesign01/) - Adrienne Watt
 
 ## Technical white papers
 * [Microsoft SQL Server 2019](https://go.microsoft.com/fwlink/p/?linkid=2166197)
