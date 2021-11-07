@@ -70,6 +70,10 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
   - [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
   - [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
 
+#### GitHub
+* [SQL Server and Azure SQL Labs and Workshops](https://aka.ms/sqlworkshops)
+
+
 -----
 
 ## Database Design
