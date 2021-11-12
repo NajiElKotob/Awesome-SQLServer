@@ -54,6 +54,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 
 #### Security
 * [Security Considerations for a SQL Server Installation](https://docs.microsoft.com/en-us/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
+* [Introduction to SQL Server Security](https://www.red-gate.com/simple-talk/devops/data-privacy-and-protection/introduction-to-sql-server-security-part-1/) :star:
 * [Transparent Data Encryption (TDE)](https://www.red-gate.com/simple-talk/sql/sql-development/encrypting-sql-server-transparent-data-encryption-tde/) 
 
 #### Backup and Restore
