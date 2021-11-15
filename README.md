@@ -70,6 +70,8 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * Service Packs (SP), Cumulative Updates (CU), patches and hotfixes
   - [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/) - This unofficial build chart lists all of the known Service Packs (SP), Cumulative Updates (CU), patches and hotfixes.
   - [How do I find SQL Server version?](https://sqlserverbuilds.blogspot.com/2019/01/how-do-i-find-sql-server-version.html)
+* [SQL Server Configuration Manager Missing from Start Menu](https://blog.sqlauthority.com/2019/03/01/sql-server-sql-server-configuration-manager-missing-from-start-menu/) - sqlauthority.com
+
 
 #### GitHub
 * [SQL Server and Azure SQL Labs and Workshops](https://aka.ms/sqlworkshops)
