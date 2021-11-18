@@ -61,6 +61,10 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [SQL Backup and Restore](https://www.sqlbackuprestore.com) - sqlbackuprestore.com
 * [Understanding SQL Server Backup Types](https://www.sqlshack.com/understanding-sql-server-backup-types/) (Prashanth Jayaram, April 2018)
 
+##### RPO/RTO
+* [RPO and RTO - definition and understanding the difference](https://www.acronis.com/en-us/articles/rto-rpo/) - acronis.com
+
+
 #### Audit
 * [SQL Server Auditing Best Practices](https://www.sqlshack.com/sql-server-auditing-best-practices/) (sqlshack.com, May 2019) - Goal, Scope, Tools, Audit Data, Audit Role, Audit for Audit, Archiving and more.
 
