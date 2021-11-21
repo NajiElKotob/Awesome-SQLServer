@@ -80,7 +80,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 #### GitHub
 * [SQL Server and Azure SQL Labs and Workshops](https://aka.ms/sqlworkshops)
 * [SQL Server 2019 (Labs)](https://github.com/microsoft/sqlworkshops-sql2019lab)
-
+* [SQL Docs (GitHub)](https://github.com/MicrosoftDocs/sql-docs)
 -----
 
 ## Database Design
