@@ -125,6 +125,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [SQL Server Queries](https://www.youtube.com/watch?v=2-1XQHAgDsM&list=PL6EDEB03D20332309) - WiseOwlTutorials
 * [Querying with Transact-SQL (Channel 9)](https://channel9.msdn.com/Series/Querying-with-Transact-SQL)
 * [Like (Advanced) ~11min](https://www.youtube.com/watch?v=d-fnQtWdiW4) - Database by Doug
+* [Intro to Structured Query Language](https://www.youtube.com/playlist?list=PLJ81tOM0EcYfzm7ET5_G8XsXz-RJF4vqc) - Database by Doug
 ### Books
 * [Learn T-SQL Querying (Free)](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
 ### Learning
