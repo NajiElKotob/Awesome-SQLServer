@@ -148,6 +148,9 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 #### SoloLearn
 * [SQL](https://www.sololearn.com/learning/1060) - sololearn.com
 
+#### Red Gate
+* [T-SQL for Beginners](https://www.red-gate.com/hub/university/courses/t-sql/tsql-for-beginners)
+
 #### Quizzes
 * [SQL Quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL) - w3schools.com
 
