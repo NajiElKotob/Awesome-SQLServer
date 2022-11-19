@@ -6,3 +6,6 @@
 `SELECT * FROM SalesLT.Product;`
 
 
+* Retrieve the Name, StandardCost, and ListPrice columns for all products.
+
+`SELECT Name, StandardCost, ListPrice FROM SalesLT.Product;`
