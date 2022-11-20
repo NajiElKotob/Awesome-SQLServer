@@ -19,3 +19,7 @@
 * Concatenate the Color and Size column values (with a literal comma between them)
 
 `SELECT ProductNumber, Color, Size, Color + ', ' + Size AS ProductDetails FROM SalesLT.Product;`
+
+* Concatenate the numeric value (ProductID) and the text-based value (Name) 
+
+`SELECT CAST(ProductID AS varchar(5)) + ': ' + Name AS ProductName FROM SalesLT.Product;`
