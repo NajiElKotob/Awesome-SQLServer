@@ -15,3 +15,7 @@
 `SELECT Name AS ProductName, 
   ListPrice - StandardCost AS Markup
  FROM SalesLT.Product;`
+
+* Concatenate the Color and Size column values (with a literal comma between them)
+
+`SELECT ProductNumber, Color, Size, Color + ', ' + Size AS ProductDetails FROM SalesLT.Product;`
