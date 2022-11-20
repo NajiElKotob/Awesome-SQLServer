@@ -23,3 +23,5 @@
 * Concatenate the numeric value (ProductID) and the text-based value (Name) 
 
 `SELECT CAST(ProductID AS varchar(5)) + ': ' + Name AS ProductName FROM SalesLT.Product;`
+<br />
+`SELECT CONVERT(varchar(5), ProductID) + ': ' + Name AS ProductName FROM SalesLT.Product;`
