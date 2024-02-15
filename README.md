@@ -84,10 +84,15 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 -----
 
 ## Database Design
+### ERD
 * [9 reasons why there are no foreign keys constraints in your database](https://dataedo.com/blog/why-there-are-no-foreign-keys-in-your-database-referential-integrity-checks) - Piotr Kononow
 * [What is Entity Relationship Diagram (ERD)](https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/)
 * [Database Answers (Data Models)](http://www.databaseanswers.org/data_models/index.htm) :star: - databaseanswers.org
 
+### Normalization
+* [Learn Database Normalization - 1NF, 2NF, 3NF, 4NF, 5NF 📺 ~30min](https://www.youtube.com/watch?v=GFQaEYEc8_8) - Decomplexify
+
+### Misc
 
 ### Documentation
 * [Database documentation tools](https://dbmstools.com/categories/database-documentation-tools/sqlserver?commercial=Free) - DBMSTools.com
