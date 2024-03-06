@@ -160,6 +160,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [T-SQL for Beginners](https://www.red-gate.com/hub/university/courses/t-sql/tsql-for-beginners) - red-gate.com
    * [T-SQL for Beginners (Code)](https://github.com/LitKnd/TSQLBeginners)
 * [OneCompiler](https://onecompiler.com/sqlserver/) - onecompiler.com
+* [SQL Editor (W3Schools)](https://www.w3schools.com/sql/trysql.asp?filename=trysql_editor) - w3schools.com
 
 #### Quizzes
 * [SQL Quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL) - w3schools.com
