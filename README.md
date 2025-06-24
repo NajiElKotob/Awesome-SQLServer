@@ -137,6 +137,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [Learn T-SQL Querying (Free)](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
 ### Learning
 #### Get Started Querying with Transact-SQL
+* [Understand data concepts](https://learn.microsoft.com/en-us/training/paths/understand-data-concepts/)
 * [Get Started Querying with Transact-SQL (Path)](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
   - [Introduction to Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/introduction-to-transact-sql/)
   - [Sort and filter results in T-SQL](https://docs.microsoft.com/en-us/learn/modules/sort-filter-queries/)
