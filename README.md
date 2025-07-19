@@ -34,6 +34,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is)
     * [The A to S of Azure Data Studio :tv:](https://www.youtube.com/watch?v=F0bIBFuH93c) 
 * [Visual Studio Code](https://code.visualstudio.com/) - Free. Built on open source. Runs everywhere.
+  - [Get started with the MSSQL extension for VS Code 📺](https://www.youtube.com/playlist?list=PL3EZ3A8mHh0xv6HXxjln5U6JwqSDrh2wG)
 
 
 -----
