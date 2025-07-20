@@ -32,7 +32,8 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
     * [Course: SSMS Shortcuts and Secrets](https://www.youtube.com/watch?v=h04qEu8vJYc&list=PLoM-GGCV9ZrKqqR2fhxuy-oKookinG4nx) - Kendra Little
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is)
-    * [The A to S of Azure Data Studio :tv:](https://www.youtube.com/watch?v=F0bIBFuH93c) 
+    * [The A to S of Azure Data Studio :tv:](https://www.youtube.com/watch?v=F0bIBFuH93c)
+    * [What's happening to Azure Data Studio?](https://learn.microsoft.com/en-us/azure-data-studio/whats-happening-azure-data-studio?tabs=dev) - Azure Data Studio officially retires on February 28, 2026
 * [Visual Studio Code](https://code.visualstudio.com/) - Free. Built on open source. Runs everywhere.
   - [Get started with the MSSQL extension for VS Code 📺](https://www.youtube.com/playlist?list=PL3EZ3A8mHh0xv6HXxjln5U6JwqSDrh2wG)
 
