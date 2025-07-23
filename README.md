@@ -137,7 +137,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 
 ### Books
 * [Learn T-SQL Querying (Free)](https://www.packtpub.com/free-ebook/learn-t-sql-querying/9781789348811) - Packt
-### Learning
+### Learning ⭐
 #### Get Started Querying with Transact-SQL
 * [Understand data concepts](https://learn.microsoft.com/en-us/training/paths/understand-data-concepts/)
 * [Get Started Querying with Transact-SQL (Path)](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/) - Microsoft Learn
@@ -148,6 +148,9 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
   - [Use built-in functions and GROUP BY in Transact-SQL](https://docs.microsoft.com/en-us/learn/modules/use-built-functions-transact-sql/)
   - [Modify data with T-SQL](https://docs.microsoft.com/en-us/learn/modules/modify-data-with-transact-sql/)
 * [Write advanced Transact-SQL queries](https://learn.microsoft.com/en-us/training/paths/write-advanced-transact-sql-queries/)
+* [Program with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/program-transact-sql/)
+* [Optimize query performance in SQL Server](https://docs.microsoft.com/en-us/learn/paths/optimize-query-performance-sql-server/)
+
 
 #### Microsoft Learning
 * [DP-080T00: Querying Data with Microsoft Transact-SQL](https://github.com/MicrosoftLearning/dp-080-Transact-SQL)
@@ -175,13 +178,6 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 
 ### Vidoes
 * [SQL Server - Procedures and Programming](https://www.youtube.com/playlist?list=PLNIs-AWhQzcleQWADpUgriRxebMkMmi4H) - WiseOwlTutorials
-
-
-### Microsoft Learning
-* [Get Started Querying with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/get-started-querying-with-transact-sql/)
-* [Program with Transact-SQL](https://docs.microsoft.com/en-us/learn/paths/program-transact-sql/)
-* [Write advanced Transact-SQL queries](https://docs.microsoft.com/en-us/learn/paths/write-advanced-transact-sql-queries/)
-* [Optimize query performance in SQL Server](https://docs.microsoft.com/en-us/learn/paths/optimize-query-performance-sql-server/)
 
 ### Edx
 * [Developing SQL Databases (Microsoft DAT215.1x)](https://learning.edx.org/course/course-v1:Microsoft+DAT215.1x+3T2018/home)
