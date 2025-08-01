@@ -94,12 +94,12 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 ### Normalization
 * [Learn Database Normalization - 1NF, 2NF, 3NF, 4NF, 5NF 📺 ~30min](https://www.youtube.com/watch?v=GFQaEYEc8_8) - Decomplexify
 
-### Misc
-
 ### Documentation
 * [Database documentation tools](https://dbmstools.com/categories/database-documentation-tools/sqlserver?commercial=Free) - DBMSTools.com
 
-
+### AdventureWorks (Sample)
+* [AdventureWorks – diagram](https://www.dbdiagrams.com/sql-server/sql-server-adventureworks-diagram/) - dbdiagrams.com
+ 
 -----
 
 ## Querying
