@@ -100,6 +100,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 ### AdventureWorks (Sample)
 * [AdventureWorks – diagram](https://www.dbdiagrams.com/sql-server/sql-server-adventureworks-diagram/) - dbdiagrams.com
 * [AdventureWorks – Data Dictionary](https://dataedo.com/samples/html/AdventureWorks/doc/AdventureWorks_2/home.html) - dataedo.com
+* [Northwind and pubs](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs)
  
 -----
 ## Sample databases
