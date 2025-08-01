@@ -104,7 +104,8 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 -----
 ## Sample databases
 * [AdventureWorks](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver17&tabs=ssms)
-
+* [Wide World Importers](https://learn.microsoft.com/en-us/sql/samples/wide-world-importers-what-is?view=sql-server-ver17)
+  
 ## Querying
 * [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
   - [Venkatramani Rajgopal](https://venkat-rajgopal.github.io/Essential-SQL/)
