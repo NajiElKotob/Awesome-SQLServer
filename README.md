@@ -102,6 +102,8 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [AdventureWorks – Data Dictionary](https://dataedo.com/samples/html/AdventureWorks/doc/AdventureWorks_2/home.html) - dataedo.com
  
 -----
+## Sample databases
+* [AdventureWorks](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver17&tabs=ssms)
 
 ## Querying
 * [Intro to SQL](https://github.com/datacamp/courses-introduction-to-sql) - DataCamp
