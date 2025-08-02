@@ -24,7 +24,8 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 
 ## YouTube :tv:
 * [Kendra Little](https://www.youtube.com/channel/UCrJ8WLrVoKxL94mKv2akxTA)
-
+* [SQL Server - Procedures and Programming](https://www.youtube.com/playlist?list=PLNIs-AWhQzcleQWADpUgriRxebMkMmi4H) - WiseOwlTutorials
+  
 -----
 ## Tools
 
@@ -168,6 +169,9 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 #### SoloLearn
 * [SQL](https://www.sololearn.com/learning/1060) - sololearn.com
 
+#### Edx
+* [Developing SQL Databases (Microsoft DAT215.1x)](https://learning.edx.org/course/course-v1:Microsoft+DAT215.1x+3T2018/home)
+  
 #### Tools
 * [T-SQL for Beginners](https://www.red-gate.com/hub/university/courses/t-sql/tsql-for-beginners) - red-gate.com
    * [T-SQL for Beginners (Code)](https://github.com/LitKnd/TSQLBeginners)
@@ -178,12 +182,6 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 * [SQL Quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL) - w3schools.com
 
 
------
-## Development
 
-### Vidoes
-* [SQL Server - Procedures and Programming](https://www.youtube.com/playlist?list=PLNIs-AWhQzcleQWADpUgriRxebMkMmi4H) - WiseOwlTutorials
 
-### Edx
-* [Developing SQL Databases (Microsoft DAT215.1x)](https://learning.edx.org/course/course-v1:Microsoft+DAT215.1x+3T2018/home)
 
