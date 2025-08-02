@@ -159,7 +159,7 @@ Microsoft SQL Server is a relational database management system (RDBMS) that sup
 
 
 #### Microsoft Learning
-* [DP-080T00: Querying Data with Microsoft Transact-SQL](https://github.com/MicrosoftLearning/dp-080-Transact-SQL)
+* [DP-080T00: Querying Data with Microsoft Transact-SQL](https://github.com/MicrosoftLearning/dp-080-Transact-SQL) ⭐
 * [Querying with Transact-SQL](https://github.com/MicrosoftLearning/QueryingT-SQL)
 * [SELECT Examples (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-examples-transact-sql) - learn.microsoft.com
 
