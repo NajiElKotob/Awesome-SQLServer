@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SQLite Subqueries — Interactive Demo</title>
+<style>
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4ef;
+    --bg-tertiary: #faf9f5;
+    --bg-info: #e6f1fb;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --text-info: #185fa5;
+    --border-tertiary: rgba(0, 0, 0, 0.12);
+    --border-secondary: rgba(0, 0, 0, 0.22);
+    --border-primary: rgba(0, 0, 0, 0.35);
+    --border-info: #378add;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1a1a1a;
+      --bg-secondary: #2a2a28;
+      --bg-tertiary: #222220;
+      --bg-info: #0c447c;
+      --text-primary: #f0efea;
+      --text-secondary: #b4b2a9;
+      --text-tertiary: #888780;
+      --text-info: #85b7eb;
+      --border-tertiary: rgba(255, 255, 255, 0.15);
+      --border-secondary: rgba(255, 255, 255, 0.28);
+      --border-primary: rgba(255, 255, 255, 0.45);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24px; font-weight: 500; margin: 0 0 0.5rem; }
+  h3 { font-size: 16px; font-weight: 500; margin: 0; }
+  .lede { font-size: 14px; color: var(--text-secondary); margin: 0 0 2rem; }
+  .btn-group { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  button {
+    padding: 8px 14px;
+    border: 0.5px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  button:hover { background: var(--bg-secondary); }
+  button.active {
+    border-color: var(--border-primary);
+    background: var(--bg-secondary);
+    font-weight: 500;
+  }
+  .panel {
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .panel-header {
+    background: var(--bg-secondary);
+    padding: 6px 10px;
+    border-bottom: 0.5px solid var(--border-tertiary);
+    font-weight: 500;
+    font-size: 12px;
+  }
+  table { width: 100%; font-size: 13px; border-collapse: collapse; }
+  th {
+    padding: 6px 12px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 12px;
+    background: var(--bg-secondary);
+    border-bottom: 0.5px solid var(--border-tertiary);
+  }
+  td { padding: 6px 12px; }
+  tbody tr { border-bottom: 0.5px solid var(--border-tertiary); }
+  tbody tr:last-child { border-bottom: none; }
+  pre {
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-tertiary);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-primary);
+    overflow-x: auto;
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .step-text { font-size: 13px; color: var(--text-secondary); }
+  .explanation {
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    border-left: 3px solid var(--border-info);
+    margin-bottom: 1rem;
+  }
+  .explanation p { margin: 0; font-size: 14px; line-height: 1.6; }
+  .hl-inner {
+    background: rgba(217, 119, 6, 0.18);
+    border-radius: 3px;
+    padding: 1px 2px;
+  }
+  .hl-value {
+    background: rgba(15, 110, 86, 0.22);
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-weight: 500;
+  }
+  .scalar-box {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 14px;
+  }
+  .scalar-box .label-sm {
+    color: var(--text-secondary);
+    font-size: 11px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .scalar-box .value { font-weight: 500; }
+  details {
+    margin-bottom: 1.25rem;
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-lg);
+    padding: 10px 14px;
+  }
+  details summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  details > div { margin-top: 12px; }
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    background: var(--bg-secondary);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border-tertiary);
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>SQLite subqueries</h1>
+  <p class="lede">Interactive demo — see how each subquery type runs first, then feeds its result into the outer query.</p>
+
+  <div class="btn-group">
+    <button onclick="showSub('scalar')" id="btn-scalar">Scalar</button>
+    <button onclick="showSub('column')" id="btn-column">Column (IN)</button>
+    <button onclick="showSub('row')" id="btn-row">Row</button>
+    <button onclick="showSub('table')" id="btn-table">Table (FROM)</button>
+    <button onclick="showSub('correlated')" id="btn-correlated">Correlated</button>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <h3 id="sub-title"></h3>
+    <p style="margin: 4px 0 0; font-size: 13px; color: var(--text-secondary);" id="sub-subtitle"></p>
+  </div>
+
+  <details>
+    <summary>Source data (click to expand)</summary>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-header">customers</div>
+        <table>
+          <thead><tr><th>id</th><th>name</th><th>segment</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Alice</td><td>Premium</td></tr>
+            <tr><td>2</td><td>Bob</td><td>Standard</td></tr>
+            <tr><td>3</td><td>Charlie</td><td>Premium</td></tr>
+            <tr><td>4</td><td>David</td><td>Standard</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <div class="panel-header">orders</div>
+        <table>
+          <thead><tr><th>id</th><th>cust_id</th><th>amount</th></tr></thead>
+          <tbody>
+            <tr><td>101</td><td>3</td><td>150</td></tr>
+            <tr><td>102</td><td>2</td><td>100</td></tr>
+            <tr><td>103</td><td>1</td><td>75</td></tr>
+            <tr><td>104</td><td>3</td><td>200</td></tr>
+            <tr><td>105</td><td>2</td><td>50</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <div style="margin-bottom: 1.25rem;">
+    <div class="step">
+      <span class="step-num">1</span>
+      <span class="step-text">The full query (inner subquery highlighted)</span>
+    </div>
+    <pre id="sub-full-query"></pre>
+  </div>
+
+  <div style="margin-bottom: 1.25rem;">
+    <div class="step">
+      <span class="step-num">2</span>
+      <span class="step-text" id="sub-inner-label">The subquery runs first, returning:</span>
+    </div>
+    <div id="sub-inner-result" style="background: var(--bg-primary); border: 0.5px solid var(--border-tertiary); border-radius: var(--radius-lg); padding: 12px; overflow-x: auto;"></div>
+  </div>
+
+  <div style="margin-bottom: 1.25rem;">
+    <div class="step">
+      <span class="step-num">3</span>
+      <span class="step-text">That value is plugged into the outer query:</span>
+    </div>
+    <pre id="sub-substituted"></pre>
+  </div>
+
+  <div style="margin-bottom: 1.25rem;">
+    <div class="step">
+      <span class="step-num">4</span>
+      <span class="step-text">Final result:</span>
+    </div>
+    <div class="panel" id="sub-final-result"></div>
+  </div>
+
+  <div class="explanation">
+    <p id="sub-explanation"></p>
+  </div>
+
+  <div class="footer">
+    Part 2 of 2 — see also: SQLite joins demo
+  </div>
+</div>
+
+<script>
+function buildTable(headers, rows) {
+  const headRow = headers.map(h => `<th>${h}</th>`).join('');
+  const bodyRows = rows.map(row => {
+    const cells = row.map(c => `<td>${c}</td>`).join('');
+    return `<tr>${cells}</tr>`;
+  }).join('');
+  return `<table><thead><tr>${headRow}</tr></thead><tbody>${bodyRows}</tbody></table>`;
+}
+
+const subData = {
+  scalar: {
+    title: 'Scalar subquery',
+    subtitle: 'Returns a single value (1 row, 1 column) — usable anywhere a value is expected',
+    fullQuery: 'SELECT id, cust_id, amount\nFROM orders\nWHERE amount > <span class="hl-inner">(SELECT AVG(amount) FROM orders)</span>;',
+    innerLabel: 'The subquery returns a single number:',
+    innerResult: '<div class="scalar-box"><span class="label-sm">AVG(amount)</span><span class="value">115.0</span></div>',
+    substituted: 'SELECT id, cust_id, amount\nFROM orders\nWHERE amount > <span class="hl-value">115.0</span>;',
+    finalTable: buildTable(['id', 'cust_id', 'amount'], [['101', '3', '150'], ['104', '3', '200']]),
+    explanation: 'A <strong>scalar</strong> subquery returns exactly one value. Here the inner query computes the average order amount (115), and the outer query keeps only orders above that average. If a scalar subquery returns more than one row, SQLite will throw an error.'
+  },
+  column: {
+    title: 'Column subquery (IN / NOT IN)',
+    subtitle: 'Returns a list of values (N rows, 1 column) — usable with IN, NOT IN, ANY, ALL',
+    fullQuery: 'SELECT id, name\nFROM customers\nWHERE id NOT IN <span class="hl-inner">(SELECT DISTINCT cust_id FROM orders)</span>;',
+    innerLabel: 'The subquery returns a column of values:',
+    innerResult: buildTable(['cust_id'], [['3'], ['2'], ['1']]),
+    substituted: 'SELECT id, name\nFROM customers\nWHERE id NOT IN <span class="hl-value">(3, 2, 1)</span>;',
+    finalTable: buildTable(['id', 'name'], [['4', 'David']]),
+    explanation: 'A <strong>column</strong> subquery returns multiple values in one column. Here we get every customer who has never placed an order. The inner query produces the list of customer IDs that <em>do</em> have orders, and <code>NOT IN</code> filters those out.'
+  },
+  row: {
+    title: 'Row subquery',
+    subtitle: 'Returns a single row of multiple columns — compared as a tuple',
+    fullQuery: 'SELECT id, cust_id, amount\nFROM orders\nWHERE (cust_id, amount) = <span class="hl-inner">(\n  SELECT cust_id, MAX(amount) FROM orders\n)</span>;',
+    innerLabel: 'The subquery returns one row with two values:',
+    innerResult: buildTable(['cust_id', 'MAX(amount)'], [['3', '200']]),
+    substituted: 'SELECT id, cust_id, amount\nFROM orders\nWHERE (cust_id, amount) = <span class="hl-value">(3, 200)</span>;',
+    finalTable: buildTable(['id', 'cust_id', 'amount'], [['104', '3', '200']]),
+    explanation: 'A <strong>row</strong> subquery returns one row with multiple columns, compared as a tuple. Both sides must match together, not independently. Useful when you need to match a combination of columns at once. (Note: SQLite supports row-value comparisons since version 3.15.)'
+  },
+  table: {
+    title: 'Table subquery (derived table in FROM)',
+    subtitle: 'Returns a full result set — used as a virtual table in FROM',
+    fullQuery: 'SELECT cust_id, total_spent\nFROM <span class="hl-inner">(\n  SELECT cust_id, SUM(amount) AS total_spent\n  FROM orders\n  GROUP BY cust_id\n)</span> AS totals\nWHERE total_spent > 100;',
+    innerLabel: 'The subquery produces a virtual table:',
+    innerResult: buildTable(['cust_id', 'total_spent'], [['1', '75'], ['2', '150'], ['3', '350']]),
+    substituted: '-- The outer query treats it as a normal table:\nSELECT cust_id, total_spent\nFROM <span class="hl-value">totals</span>\nWHERE total_spent > 100;',
+    finalTable: buildTable(['cust_id', 'total_spent'], [['2', '150'], ['3', '350']]),
+    explanation: 'A <strong>table</strong> subquery (also called a <em>derived table</em>) returns a full result set used in the <code>FROM</code> clause. It must be given an alias (here, <code>totals</code>). This is essential when you need to filter or aggregate over an aggregated result — like finding customers whose total spending exceeds a threshold.'
+  },
+  correlated: {
+    title: 'Correlated subquery',
+    subtitle: 'References the outer query — re-evaluated for each outer row',
+    fullQuery: 'SELECT o1.id, o1.cust_id, o1.amount\nFROM orders o1\nWHERE o1.amount = <span class="hl-inner">(\n  SELECT MAX(o2.amount)\n  FROM orders o2\n  WHERE o2.cust_id = o1.cust_id\n)</span>;',
+    innerLabel: 'The subquery runs once per outer row, using that row\'s cust_id:',
+    innerResult: buildTable(
+      ['For outer row', 'o1.cust_id', 'subquery returns MAX'],
+      [
+        ['id 101 (amount 150)', '3', '200'],
+        ['id 102 (amount 100)', '2', '100'],
+        ['id 103 (amount 75)', '1', '75'],
+        ['id 104 (amount 200)', '3', '200'],
+        ['id 105 (amount 50)', '2', '100']
+      ]
+    ),
+    substituted: '-- For each row, keep it only if its amount\n-- matches the MAX for that customer:\n-- id 101: 150 = 200? no\n-- id 102: 100 = 100? yes ✓\n-- id 103:  75 =  75? yes ✓\n-- id 104: 200 = 200? yes ✓\n-- id 105:  50 = 100? no',
+    finalTable: buildTable(['id', 'cust_id', 'amount'], [['102', '2', '100'], ['103', '1', '75'], ['104', '3', '200']]),
+    explanation: 'A <strong>correlated</strong> subquery references columns from the outer query (<code>o1.cust_id</code>), so it must be re-run for every outer row. This finds the largest order per customer. Powerful but slower than non-correlated subqueries — for big tables, a JOIN with GROUP BY is usually faster.'
+  }
+};
+
+function showSub(type) {
+  const ex = subData[type];
+  document.getElementById('sub-title').textContent = ex.title;
+  document.getElementById('sub-subtitle').textContent = ex.subtitle;
+  document.getElementById('sub-full-query').innerHTML = ex.fullQuery;
+  document.getElementById('sub-inner-label').textContent = ex.innerLabel;
+  document.getElementById('sub-inner-result').innerHTML = ex.innerResult;
+  document.getElementById('sub-substituted').innerHTML = ex.substituted;
+  document.getElementById('sub-final-result').innerHTML = ex.finalTable;
+  document.getElementById('sub-explanation').innerHTML = ex.explanation;
+
+  document.querySelectorAll('[id^="btn-"]').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + type).classList.add('active');
+}
+
+showSub('scalar');
+</script>
+</body>
+</html>

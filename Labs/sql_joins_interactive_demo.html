@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SQLite Joins — Interactive Demo</title>
+<style>
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4ef;
+    --bg-tertiary: #faf9f5;
+    --bg-info: #e6f1fb;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --text-info: #185fa5;
+    --border-tertiary: rgba(0, 0, 0, 0.12);
+    --border-secondary: rgba(0, 0, 0, 0.22);
+    --border-primary: rgba(0, 0, 0, 0.35);
+    --border-info: #378add;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1a1a1a;
+      --bg-secondary: #2a2a28;
+      --bg-tertiary: #222220;
+      --bg-info: #0c447c;
+      --text-primary: #f0efea;
+      --text-secondary: #b4b2a9;
+      --text-tertiary: #888780;
+      --text-info: #85b7eb;
+      --border-tertiary: rgba(255, 255, 255, 0.15);
+      --border-secondary: rgba(255, 255, 255, 0.28);
+      --border-primary: rgba(255, 255, 255, 0.45);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24px; font-weight: 500; margin: 0 0 0.5rem; }
+  h3 { font-size: 16px; font-weight: 500; margin: 0; }
+  .lede { font-size: 14px; color: var(--text-secondary); margin: 0 0 2rem; }
+  .btn-group { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  button {
+    padding: 8px 16px;
+    border: 0.5px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  button:hover { background: var(--bg-secondary); }
+  button.active {
+    border-color: var(--border-primary);
+    background: var(--bg-secondary);
+    font-weight: 500;
+  }
+  .panel {
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .panel-header {
+    background: var(--bg-secondary);
+    padding: 10px 12px;
+    border-bottom: 0.5px solid var(--border-tertiary);
+    font-weight: 500;
+    font-size: 13px;
+  }
+  table { width: 100%; font-size: 13px; border-collapse: collapse; }
+  th {
+    padding: 6px 12px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 12px;
+    background: var(--bg-secondary);
+    border-bottom: 0.5px solid var(--border-tertiary);
+  }
+  td { padding: 7px 12px; }
+  tbody tr { border-bottom: 0.5px solid var(--border-tertiary); }
+  tbody tr:last-child { border-bottom: none; }
+  pre {
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-tertiary);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-primary);
+    overflow-x: auto;
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .row-count { font-size: 13px; color: var(--text-secondary); }
+  .hint { margin: 8px 0 0; font-size: 12px; color: var(--text-secondary); }
+  .label { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+  .explanation {
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    border-left: 3px solid var(--border-info);
+    margin-bottom: 1rem;
+  }
+  .explanation p { margin: 0; font-size: 14px; line-height: 1.6; }
+  .null-cell { color: var(--text-tertiary); font-style: italic; }
+  .truncated-row { background: var(--bg-secondary); }
+  .truncated-row td {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-style: italic;
+  }
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border-tertiary);
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>SQLite joins</h1>
+  <p class="lede">Interactive demo — click each join type to see how rows are matched and which appear in the result.</p>
+
+  <div class="btn-group">
+    <button onclick="showJoin('inner')" id="btn-inner">INNER JOIN</button>
+    <button onclick="showJoin('left')" id="btn-left">LEFT JOIN</button>
+    <button onclick="showJoin('right')" id="btn-right">RIGHT JOIN</button>
+    <button onclick="showJoin('full')" id="btn-full">FULL OUTER</button>
+    <button onclick="showJoin('cross')" id="btn-cross">CROSS JOIN</button>
+  </div>
+
+  <div class="header-row">
+    <h3 id="join-title">Inner join</h3>
+    <span class="row-count" id="join-row-count">3 rows returned</span>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-header">customers</div>
+      <table>
+        <thead><tr><th>id</th><th>name</th></tr></thead>
+        <tbody id="customers-body">
+          <tr data-id="1"><td>1</td><td>Alice</td></tr>
+          <tr data-id="2"><td>2</td><td>Bob</td></tr>
+          <tr data-id="3"><td>3</td><td>Charlie</td></tr>
+          <tr data-id="4"><td>4</td><td>David</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel">
+      <div class="panel-header">orders</div>
+      <table>
+        <thead><tr><th>id</th><th>cust_id</th><th>amount</th></tr></thead>
+        <tbody id="orders-body">
+          <tr data-idx="1"><td>101</td><td>3</td><td>$150</td></tr>
+          <tr data-idx="2"><td>102</td><td>2</td><td>$100</td></tr>
+          <tr data-idx="3"><td>103</td><td>1</td><td>$75</td></tr>
+          <tr data-idx="4"><td>104</td><td>5</td><td>$200</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="hint">Highlighted rows = included in result</p>
+
+  <div style="margin-top: 1.5rem;">
+    <div class="label">Result</div>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>customer_id</th>
+            <th>name</th>
+            <th>order_id</th>
+            <th>amount</th>
+          </tr>
+        </thead>
+        <tbody id="join-result-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem;">
+    <div class="label">SQL</div>
+    <pre id="join-sql"></pre>
+  </div>
+
+  <div class="explanation" style="margin-top: 1rem;">
+    <p id="join-explanation"></p>
+  </div>
+
+  <div class="footer">
+    Part 1 of 2 — see also: SQLite subqueries demo
+  </div>
+</div>
+
+<script>
+const joinData = {
+  inner: {
+    title: 'Inner join',
+    sql: 'SELECT c.customer_id, c.name, o.order_id, o.amount\nFROM customers c\nINNER JOIN orders o ON c.customer_id = o.customer_id;',
+    explanation: '<strong>INNER JOIN</strong> returns only rows where the join condition is met. Customer 4 (David) has no orders and order 104 has no matching customer — both are excluded.',
+    custIncluded: ['1', '2', '3'],
+    orderIncluded: ['1', '2', '3'],
+    results: [
+      { custId: '1', name: 'Alice', orderId: '103', amount: '$75' },
+      { custId: '2', name: 'Bob', orderId: '102', amount: '$100' },
+      { custId: '3', name: 'Charlie', orderId: '101', amount: '$150' }
+    ]
+  },
+  left: {
+    title: 'Left join',
+    sql: 'SELECT c.customer_id, c.name, o.order_id, o.amount\nFROM customers c\nLEFT JOIN orders o ON c.customer_id = o.customer_id;',
+    explanation: '<strong>LEFT JOIN</strong> keeps every row from the left table (customers). David has no orders, so order columns show NULL. The orphan order 104 (cust_id 5) is excluded — it is not in the left table.',
+    custIncluded: ['1', '2', '3', '4'],
+    orderIncluded: ['1', '2', '3'],
+    results: [
+      { custId: '1', name: 'Alice', orderId: '103', amount: '$75' },
+      { custId: '2', name: 'Bob', orderId: '102', amount: '$100' },
+      { custId: '3', name: 'Charlie', orderId: '101', amount: '$150' },
+      { custId: '4', name: 'David', orderId: 'NULL', amount: 'NULL' }
+    ]
+  },
+  right: {
+    title: 'Right join (SQLite 3.39+, or simulated with LEFT JOIN)',
+    sql: '-- Modern SQLite (3.39+):\nSELECT c.customer_id, c.name, o.order_id, o.amount\nFROM customers c\nRIGHT JOIN orders o ON c.customer_id = o.customer_id;\n\n-- Or simulated for older versions:\nSELECT c.customer_id, c.name, o.order_id, o.amount\nFROM orders o\nLEFT JOIN customers c ON c.customer_id = o.customer_id;',
+    explanation: '<strong>RIGHT JOIN</strong> keeps every row from the right table (orders). Order 104 has no matching customer, so name and customer_id are NULL. David is excluded — he has no orders. SQLite supports the RIGHT JOIN keyword from version 3.39 onward; older versions need the LEFT JOIN simulation.',
+    custIncluded: ['1', '2', '3'],
+    orderIncluded: ['1', '2', '3', '4'],
+    results: [
+      { custId: '3', name: 'Charlie', orderId: '101', amount: '$150' },
+      { custId: '2', name: 'Bob', orderId: '102', amount: '$100' },
+      { custId: '1', name: 'Alice', orderId: '103', amount: '$75' },
+      { custId: 'NULL', name: 'NULL', orderId: '104', amount: '$200' }
+    ]
+  },
+  full: {
+    title: 'Full outer join (SQLite 3.39+, or simulated with UNION)',
+    sql: '-- Modern SQLite (3.39+):\nSELECT c.customer_id, c.name, o.order_id, o.amount\nFROM customers c\nFULL OUTER JOIN orders o ON c.customer_id = o.customer_id;\n\n-- Or simulated for older versions:\nSELECT c.customer_id, c.name, o.order_id, o.amount\nFROM customers c\nLEFT JOIN orders o ON c.customer_id = o.customer_id\nUNION\nSELECT c.customer_id, c.name, o.order_id, o.amount\nFROM orders o\nLEFT JOIN customers c ON c.customer_id = o.customer_id;',
+    explanation: '<strong>FULL OUTER JOIN</strong> keeps everything from both sides. David appears with NULL orders, order 104 appears with NULL customer. No row is dropped.',
+    custIncluded: ['1', '2', '3', '4'],
+    orderIncluded: ['1', '2', '3', '4'],
+    results: [
+      { custId: '1', name: 'Alice', orderId: '103', amount: '$75' },
+      { custId: '2', name: 'Bob', orderId: '102', amount: '$100' },
+      { custId: '3', name: 'Charlie', orderId: '101', amount: '$150' },
+      { custId: '4', name: 'David', orderId: 'NULL', amount: 'NULL' },
+      { custId: 'NULL', name: 'NULL', orderId: '104', amount: '$200' }
+    ]
+  },
+  cross: {
+    title: 'Cross join',
+    sql: 'SELECT c.customer_id, c.name, o.order_id, o.amount\nFROM customers c\nCROSS JOIN orders o;',
+    explanation: '<strong>CROSS JOIN</strong> has no join condition. Every customer is paired with every order — 4 × 4 = 16 rows. There is no notion of "matching" here, so all rows from both tables participate. Row count = rows(left) × rows(right).',
+    custIncluded: ['1', '2', '3', '4'],
+    orderIncluded: ['1', '2', '3', '4'],
+    truncated: true,
+    totalRows: 16,
+    results: [
+      { custId: '1', name: 'Alice', orderId: '101', amount: '$150' },
+      { custId: '1', name: 'Alice', orderId: '102', amount: '$100' },
+      { custId: '1', name: 'Alice', orderId: '103', amount: '$75' },
+      { custId: '1', name: 'Alice', orderId: '104', amount: '$200' },
+      { custId: '2', name: 'Bob', orderId: '101', amount: '$150' },
+      { custId: '2', name: 'Bob', orderId: '102', amount: '$100' },
+      { custId: '2', name: 'Bob', orderId: '103', amount: '$75' },
+      { custId: '2', name: 'Bob', orderId: '104', amount: '$200' }
+    ]
+  }
+};
+
+const HIGHLIGHT = 'rgba(100, 150, 200, 0.15)';
+
+function showJoin(type) {
+  const data = joinData[type];
+
+  document.getElementById('join-title').textContent = data.title;
+  const rowCount = data.totalRows || data.results.length;
+  document.getElementById('join-row-count').textContent = rowCount + ' row' + (rowCount === 1 ? '' : 's') + ' returned';
+
+  document.querySelectorAll('[id^="btn-"]').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + type).classList.add('active');
+
+  document.querySelectorAll('#customers-body tr').forEach(tr => {
+    tr.style.background = data.custIncluded.includes(tr.dataset.id) ? HIGHLIGHT : 'transparent';
+  });
+  document.querySelectorAll('#orders-body tr').forEach(tr => {
+    tr.style.background = data.orderIncluded.includes(tr.dataset.idx) ? HIGHLIGHT : 'transparent';
+  });
+
+  document.getElementById('join-sql').textContent = data.sql;
+  document.getElementById('join-explanation').innerHTML = data.explanation;
+
+  const tbody = document.getElementById('join-result-body');
+  tbody.innerHTML = data.results.map(row => {
+    const cell = (val) => {
+      const cls = val === 'NULL' ? ' class="null-cell"' : '';
+      return `<td${cls}>${val}</td>`;
+    };
+    return `<tr>${cell(row.custId)}${cell(row.name)}${cell(row.orderId)}${cell(row.amount)}</tr>`;
+  }).join('');
+
+  if (data.truncated) {
+    tbody.innerHTML += `<tr class="truncated-row"><td colspan="4">showing 8 of ${data.totalRows} rows</td></tr>`;
+  }
+}
+
+showJoin('inner');
+</script>
+</body>
+</html>
