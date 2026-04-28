@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SQLite Indexes — Interactive Demo</title>
+<style>
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4ef;
+    --bg-tertiary: #faf9f5;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --border-tertiary: rgba(0, 0, 0, 0.12);
+    --border-secondary: rgba(0, 0, 0, 0.22);
+    --border-primary: rgba(0, 0, 0, 0.35);
+    --border-info: #378add;
+    --hl-scan: rgba(217, 119, 6, 0.22);
+    --hl-hit: rgba(15, 110, 86, 0.28);
+    --hl-node: rgba(15, 110, 86, 0.18);
+    --hl-stroke: rgba(15, 110, 86, 0.6);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1a1a1a;
+      --bg-secondary: #2a2a28;
+      --bg-tertiary: #222220;
+      --text-primary: #f0efea;
+      --text-secondary: #b4b2a9;
+      --text-tertiary: #888780;
+      --border-tertiary: rgba(255, 255, 255, 0.15);
+      --border-secondary: rgba(255, 255, 255, 0.28);
+      --border-primary: rgba(255, 255, 255, 0.45);
+      --hl-scan: rgba(217, 119, 6, 0.32);
+      --hl-hit: rgba(34, 167, 124, 0.32);
+      --hl-node: rgba(34, 167, 124, 0.22);
+      --hl-stroke: rgba(34, 167, 124, 0.7);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24px; font-weight: 500; margin: 0 0 0.5rem; }
+  h3 { font-size: 16px; font-weight: 500; margin: 0 0 6px 0; }
+  .lede { font-size: 14px; color: var(--text-secondary); margin: 0 0 2rem; }
+  code {
+    font-family: var(--font-mono);
+    background: var(--bg-secondary);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.92em;
+  }
+  button {
+    padding: 8px 16px;
+    border: 0.5px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  button:hover:not(:disabled) { background: var(--bg-secondary); }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.primary { font-weight: 500; }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .controls .target-info {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  .panes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 600px) { .panes { grid-template-columns: 1fr; } }
+
+  .pane {
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pane-header {
+    background: var(--bg-secondary);
+    padding: 10px 12px;
+    border-bottom: 0.5px solid var(--border-tertiary);
+  }
+  .pane-title {
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .pane-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+  .pane-footer {
+    padding: 10px 12px;
+    border-top: 0.5px solid var(--border-tertiary);
+    background: var(--bg-secondary);
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: auto;
+  }
+  .pane-footer strong {
+    color: var(--text-primary);
+  }
+
+  .scan-table-wrap { padding: 8px 0; }
+  .scan-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+  }
+  .scan-table th {
+    padding: 4px 10px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 11px;
+    background: var(--bg-secondary);
+  }
+  .scan-table td {
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+  }
+  .scan-table tr {
+    transition: background 0.2s;
+  }
+
+  .btree-wrap { padding: 12px; }
+
+  .result-bar {
+    display: none;
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    border-left: 3px solid var(--border-info);
+    margin-bottom: 1.5rem;
+  }
+  .result-bar p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .result-bar code {
+    background: var(--bg-primary);
+  }
+
+  .why-box {
+    background: var(--bg-secondary);
+    padding: 14px;
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-tertiary);
+  }
+  .why-box .why-title {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .why-box p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .why-box ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .why-box .footnote {
+    margin-top: 10px;
+    color: var(--text-secondary);
+  }
+
+  .sql-section {
+    margin-top: 1rem;
+  }
+  .sql-section .label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  pre {
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-tertiary);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-primary);
+    overflow-x: auto;
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border-tertiary);
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  /* SVG node text & shapes use CSS-vars-aware fills */
+  .node-rect {
+    fill: var(--bg-secondary);
+    stroke: var(--border-secondary);
+    stroke-width: 1;
+    transition: fill 0.2s, stroke 0.2s;
+  }
+  .leaf-rect {
+    fill: var(--bg-primary);
+    stroke: var(--border-tertiary);
+    stroke-width: 1;
+    transition: fill 0.2s, stroke 0.2s;
+  }
+  .node-text {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    fill: var(--text-primary);
+  }
+  .leaf-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    fill: var(--text-secondary);
+  }
+  .edge {
+    stroke: var(--text-tertiary);
+    stroke-width: 1;
+  }
+  .btree-status {
+    font-size: 11px;
+    fill: var(--text-secondary);
+  }
+
+  .node-active .node-rect,
+  .node-active .leaf-rect {
+    fill: var(--hl-node);
+    stroke: var(--hl-stroke);
+    stroke-width: 2;
+  }
+  .node-found .leaf-rect {
+    fill: var(--hl-hit);
+    stroke: var(--hl-stroke);
+    stroke-width: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>SQLite indexes</h1>
+  <p class="lede">See how an index transforms a slow row-by-row scan into a few quick jumps.</p>
+
+  <div style="margin-bottom: 1.5rem;">
+    <h3>How indexes make queries fast</h3>
+    <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+      The query <code>SELECT * FROM users WHERE email = 'kim@x.com'</code>
+      runs against the same 16 rows two ways. Click <strong>Run search</strong> and watch what each does.
+    </p>
+  </div>
+
+  <div class="controls">
+    <button onclick="runSearch()" id="run-btn" class="primary">Run search</button>
+    <button onclick="resetSearch()">Reset</button>
+    <span class="target-info">Looking for: <code>kim@x.com</code></span>
+  </div>
+
+  <div class="panes">
+
+    <!-- LEFT: Full Table Scan -->
+    <div class="pane">
+      <div class="pane-header">
+        <div class="pane-title">Without index</div>
+        <div class="pane-subtitle">Full table scan — checks every row</div>
+      </div>
+      <div class="scan-table-wrap">
+        <table class="scan-table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>email</th>
+            </tr>
+          </thead>
+          <tbody id="scan-body"></tbody>
+        </table>
+      </div>
+      <div class="pane-footer">
+        Rows examined: <strong id="scan-count">0</strong>
+      </div>
+    </div>
+
+    <!-- RIGHT: Index Lookup -->
+    <div class="pane">
+      <div class="pane-header">
+        <div class="pane-title">With index on email</div>
+        <div class="pane-subtitle">B-tree lookup — jumps to the answer</div>
+      </div>
+      <div class="btree-wrap">
+        <svg viewBox="0 0 320 200" style="width: 100%; height: auto;">
+          <line x1="160" y1="34" x2="80" y2="84" class="edge"/>
+          <line x1="160" y1="34" x2="240" y2="84" class="edge"/>
+          <line x1="80" y1="100" x2="40" y2="150" class="edge"/>
+          <line x1="80" y1="100" x2="120" y2="150" class="edge"/>
+          <line x1="240" y1="100" x2="200" y2="150" class="edge"/>
+          <line x1="240" y1="100" x2="280" y2="150" class="edge"/>
+
+          <g id="node-root">
+            <rect x="135" y="18" width="50" height="28" rx="4" class="node-rect"/>
+            <text x="160" y="36" text-anchor="middle" class="node-text">&lt; m</text>
+          </g>
+          <g id="node-l">
+            <rect x="55" y="84" width="50" height="28" rx="4" class="node-rect"/>
+            <text x="80" y="102" text-anchor="middle" class="node-text">&lt; f</text>
+          </g>
+          <g id="node-r">
+            <rect x="215" y="84" width="50" height="28" rx="4" class="node-rect"/>
+            <text x="240" y="102" text-anchor="middle" class="node-text">&lt; s</text>
+          </g>
+
+          <g id="leaf-ll">
+            <rect x="15" y="150" width="50" height="28" rx="4" class="leaf-rect"/>
+            <text x="40" y="168" text-anchor="middle" class="leaf-text">a–e</text>
+          </g>
+          <g id="leaf-lr">
+            <rect x="95" y="150" width="50" height="28" rx="4" class="leaf-rect"/>
+            <text x="120" y="168" text-anchor="middle" class="leaf-text">f–l</text>
+          </g>
+          <g id="leaf-rl">
+            <rect x="175" y="150" width="50" height="28" rx="4" class="leaf-rect"/>
+            <text x="200" y="168" text-anchor="middle" class="leaf-text">m–r</text>
+          </g>
+          <g id="leaf-rr">
+            <rect x="255" y="150" width="50" height="28" rx="4" class="leaf-rect"/>
+            <text x="280" y="168" text-anchor="middle" class="leaf-text">s–z</text>
+          </g>
+
+          <text x="160" y="195" text-anchor="middle" class="btree-status" id="btree-status"></text>
+        </svg>
+      </div>
+      <div class="pane-footer">
+        Steps taken: <strong id="index-count">0</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-bar" id="result-bar">
+    <p id="result-text"></p>
+  </div>
+
+  <div class="why-box">
+    <div class="why-title">Why is the index so much faster?</div>
+    <p>
+      The index is a <strong>B-tree</strong> — a sorted, branching structure. At each level it eliminates roughly half the data with one comparison.
+    </p>
+    <ul>
+      <li>16 rows: full scan up to <strong>16 steps</strong> vs index <strong>~4 steps</strong></li>
+      <li>1,000 rows: <strong>1,000 steps</strong> vs <strong>~10 steps</strong></li>
+      <li>1 million rows: <strong>1,000,000 steps</strong> vs <strong>~20 steps</strong></li>
+    </ul>
+    <p class="footnote">
+      Index lookup grows logarithmically, table scan grows linearly. That's why indexes feel like magic on big tables.
+    </p>
+  </div>
+
+  <div class="sql-section">
+    <div class="label">Create the index in SQLite</div>
+    <pre>CREATE INDEX idx_users_email ON users(email);
+
+-- Verify SQLite uses it:
+EXPLAIN QUERY PLAN
+SELECT * FROM users WHERE email = 'kim@x.com';
+-- → SEARCH users USING INDEX idx_users_email</pre>
+  </div>
+
+  <div class="footer">
+    Standalone demo — open in any modern browser
+  </div>
+</div>
+
+<script>
+const users = [
+  { id: 1,  email: 'alice@x.com' },
+  { id: 2,  email: 'ben@x.com' },
+  { id: 3,  email: 'carol@x.com' },
+  { id: 4,  email: 'dan@x.com' },
+  { id: 5,  email: 'eva@x.com' },
+  { id: 6,  email: 'frank@x.com' },
+  { id: 7,  email: 'grace@x.com' },
+  { id: 8,  email: 'henry@x.com' },
+  { id: 9,  email: 'ivy@x.com' },
+  { id: 10, email: 'jack@x.com' },
+  { id: 11, email: 'kim@x.com' },
+  { id: 12, email: 'leo@x.com' },
+  { id: 13, email: 'mia@x.com' },
+  { id: 14, email: 'noah@x.com' },
+  { id: 15, email: 'olive@x.com' },
+  { id: 16, email: 'paul@x.com' }
+];
+const TARGET = 'kim@x.com';
+const TARGET_INDEX = users.findIndex(u => u.email === TARGET);
+
+let isRunning = false;
+
+function getCSSVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function buildScanRows() {
+  const tbody = document.getElementById('scan-body');
+  tbody.innerHTML = users.map((u, i) => `
+    <tr id="row-${i}">
+      <td>${u.id}</td>
+      <td>${u.email}</td>
+    </tr>
+  `).join('');
+}
+
+function resetVisuals() {
+  for (let i = 0; i < users.length; i++) {
+    const row = document.getElementById('row-' + i);
+    if (row) row.style.background = 'transparent';
+  }
+  document.getElementById('scan-count').textContent = '0';
+  document.getElementById('index-count').textContent = '0';
+  document.getElementById('btree-status').textContent = '';
+  ['node-root','node-l','node-r','leaf-ll','leaf-lr','leaf-rl','leaf-rr'].forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('node-active', 'node-found');
+  });
+  document.getElementById('result-bar').style.display = 'none';
+}
+
+function resetSearch() {
+  if (isRunning) return;
+  resetVisuals();
+}
+
+async function runSearch() {
+  if (isRunning) return;
+  isRunning = true;
+  document.getElementById('run-btn').disabled = true;
+  resetVisuals();
+
+  await Promise.all([runScan(), runIndex()]);
+
+  const bar = document.getElementById('result-bar');
+  document.getElementById('result-text').innerHTML =
+    `Found <code>${TARGET}</code> — ` +
+    `the table scan checked <strong>${TARGET_INDEX + 1} rows</strong>, the index found it in <strong>4 steps</strong>. ` +
+    `On 16 rows the difference is small. On a million rows, it would be the difference between instant and unusable.`;
+  bar.style.display = 'block';
+
+  isRunning = false;
+  document.getElementById('run-btn').disabled = false;
+}
+
+async function runScan() {
+  const stepDelay = 220;
+  const scanColor = getCSSVar('--hl-scan');
+  const hitColor = getCSSVar('--hl-hit');
+  for (let i = 0; i <= TARGET_INDEX; i++) {
+    const row = document.getElementById('row-' + i);
+    row.style.background = scanColor;
+    document.getElementById('scan-count').textContent = (i + 1);
+    await sleep(stepDelay);
+    if (i < TARGET_INDEX) {
+      row.style.background = 'transparent';
+    } else {
+      row.style.background = hitColor;
+    }
+  }
+}
+
+async function runIndex() {
+  const stepDelay = 600;
+
+  await sleep(200);
+  document.getElementById('node-root').classList.add('node-active');
+  document.getElementById('btree-status').textContent = "k < m → go left";
+  document.getElementById('index-count').textContent = '1';
+  await sleep(stepDelay);
+
+  document.getElementById('node-l').classList.add('node-active');
+  document.getElementById('btree-status').textContent = "k > f → go right";
+  document.getElementById('index-count').textContent = '2';
+  await sleep(stepDelay);
+
+  document.getElementById('leaf-lr').classList.add('node-active');
+  document.getElementById('btree-status').textContent = "leaf f–l: scan small bucket";
+  document.getElementById('index-count').textContent = '3';
+  await sleep(stepDelay);
+
+  document.getElementById('leaf-lr').classList.remove('node-active');
+  document.getElementById('leaf-lr').classList.add('node-found');
+  document.getElementById('btree-status').textContent = "found kim@x.com ✓";
+  document.getElementById('index-count').textContent = '4';
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+buildScanRows();
+</script>
+</body>
+</html>
